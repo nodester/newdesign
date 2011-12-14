@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Nodester -> Open Source Node.JS PaaS</title>
+    <meta name="description" content="Open Source Node.JS Platform as a Service">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+      }
+    </style>
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="nodester_favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  </head>
+
+  <body>
+
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <a class="brand" href="/">nodester</a>
+          <ul class="nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+			<p class="pull-right"><a class="btn primary large">Signin &raquo;</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit">
+        <h1>OpenSource Node.JS PaaS</h1><br/>
+<img src="nodesterbw_transparent.png" align="right" width="250">
+<!-- <img src="rocket-md.png" align="right" width="250"> -->
+
+        <p>Deploy your Node.JS applications to Nodester.com for FREE or deploy your apps to your own private cloud instance of Nodester running in your own datacenter or on Amazon EC2, Rackspace, or GoGrid!
+			</p><p>
+		Nodester is an open source Node.JS Platform-as-a-Service written in Node.JS with a RESTful API designed to run in any cloud without a VPS! It was the first of it's kind and 100% open sourced under the GNU Affero license on <a href="http://github.com/nodester">GitHub</a>.</p><br/>
+        <p><a class="btn primary large">Learn more &raquo;</a></p>
+      </div>
+
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="span5">
+          <h2><img src="rocket-md-right.png" width="30">Preparing Launch</h2>
+          <p>Request your free Nodester Node.JS hosting coupon.
+			</p><p>
+		curl -X POST -d "email=your_address@gmail.com" http://nodester.com/coupon</p><br/>
+          <p><a class="btn" href="#">View details &raquo;</a></p>
+        </div>
+        <div class="span5">
+          <h2><img src="rocket-md-right.png" width="30">All Systems Go</h2>
+           <p>You have received your coupon and you're ready to install our Command Line Interface (CLI).
+			</p><p>
+		npm install nodester-cli -g <br/>
+		nodester user setup username password <br/>
+		nodester user setkey file_path </p>
+          <p><a class="btn" href="#">View details &raquo;</a></p>
+       </div>
+        <div class="span5">
+          <h2><img src="rocket-md-right.png" width="30">Launch App</h2>
+          <p>You are ready to deploy your test Hello World app with 2 commands.
+			</p><p>
+		nodester app create app-name server.js<br/>
+		nodester app init app-name <br/>
+		Visit http://myapp.nodester.com!</p><br/>
+          <p><a class="btn" href="#">View details &raquo;</a></p>
+        </div>
+      </div>
+
+      <footer>
+        <p>&copy; 2012 Nodester, inc. </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+  </body>
+</html>
