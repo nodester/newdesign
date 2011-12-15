@@ -24,6 +24,9 @@
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+
+
   </head>
 
   <body>
@@ -36,6 +39,7 @@
             <li><a href="/">Home</a></li>
             <li><a href="/api.html">Docs</a></li>
             <li><a href="/about.html">About</a></li>
+            <li><a href="http://irc.nodester.com">IRC</a></li>
           </ul>
 			<p class="pull-right"><a class="btn primary large" href="developer.html">Signin &raquo;</a></p>
         </div>
@@ -44,11 +48,64 @@
 
     <div class="container">
 
-
 	<div class="span16"><br/>
-        <h1>Developers</h1>
-		<p>place holder...</p>	
+        <h1>Welcome Nodesters!</h1>
+		<p>Nodester is a free and open source Node.JS hosting PaaS.  Our Web Admin Panel is coming soon.  Until then, here are a few tricks to get you started.</p>
+		<br/>
+		<h2><img src="rocket-md-right.png" width="30"> Requesting a Coupon Code to Register</h2>
+		<p>curl -X POST -d "email=your_address@gmail.com" http://nodester.com/coupon</p>	
+		<br/>
+		<h2><img src="rocket-md-right.png" width="30"> Registering with Coupon Code</h2>
+		<p>
+			curl -X POST -d "coupon=mycoupon&user=testuser&password=123&email=chris@nodester.com&rsakey=ssh-rsa AAAAB3NzaC1yc..." http://nodester.com/user<br><br/>
+			- OR - <br/><br/>
+			<div id="regbutton" class="btn">Use this web form</div>
+			<div id="regform" style="display: none">
+				<form action="/user" method="post">
+					<p><label for="name">Coupon:</label>
+					<input type="password" name="coupon" id="coupon" value="" /><br />		
+					<label for="name">Username:</label>
+					<input type="text" name="user" id="user" value="" /><br />		
+					<label for="name">Password:</label>
+					<input type="password" name="password" id="password" value="" /> (only alphanumeric allowed)<br />	
+					<span id="passwordError" style="display:none"><span style="color:red">Password is limited to alphanumerics - no symbols allowed.</span><br/></span>	
+					<label for="email">Email:</label>
+					<input type="text" name="email" id="email" value="" /><br />
+					<label for="rsakey">Public RSA Key:</label>
+					<textarea cols="60" rows="8" name="rsakey" id="rsakey">
+Copy & Paste RSA key from command line: 
+
+cat ~/.ssh/id_rsa.pub | pbcopy</textarea><br />
+					<input type="submit" name="send" class="formbutton" value="Send" />
+				</form>
+			</div>
+			<br/><br/>
+			</p>
+			<p>
+			npm install nodester-cli -g <br/>
+			nodester user setup username password <br/>
+			nodester user setkey file_path 
+			</p><br/>
+			
+		<h2><img src="rocket-md-right.png" width="30"> Launch Your Node.JS Application!</h2>
+          <p>You are ready to deploy your test Hello World app with 2 commands.</p>
+		<p>
+			nodester app create app-name server.js<br/>
+			nodester app init app-name <br/><br/>
+			Browse to your new app -> http://myapp.nodester.com!
+		</p>
 	</div>
+	
+	<script>
+	$('#regbutton').click(function() {
+	  $('#regform').toggle('slow', function() {
+	    // Animation complete.
+	  });
+	});
+	// $("#regbutton").click(function () {
+	// $("#regform").toggle();
+	// });
+	</script>
 
       <footer>
         <p>&copy; 2012 Nodester, inc. </p>
