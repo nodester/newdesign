@@ -24,6 +24,8 @@
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+
   </head>
 
   <body>
@@ -53,9 +55,27 @@
 <!-- <img src="rocket-md.png" align="right" width="250"> -->
 
         <p>Deploy your Node.JS applications to Nodester.com for FREE or deploy your apps to your own private cloud instance of Nodester running in your own datacenter or on Amazon EC2, Rackspace, or GoGrid!
-			</p><p>
+			</p><br/><p>
 		Nodester is an open source Node.JS Platform-as-a-Service written in Node.JS with a RESTful API designed to run in any cloud without a VPS! It was the first of it's kind and 100% open sourced under the GNU Affero license on <a href="http://github.com/nodester">GitHub</a>.</p><br/>
-        <p><a class="btn primary large" href="developer.html">Learn more &raquo;</a></p>
+        <!-- <p><a class="btn primary large" href="developer.html">Learn more &raquo;</a></p> -->
+
+		<div id="reqbutton" class="btn primary large">Request Registration Coupon &raquo;</div>
+		<div id="reqform" style="display: none"><br/>
+			<form action="/coupon" method="post">
+				<p><label for="email">Email Adderss:</label>
+				<input type="text" name="email" id="email" value="" /><input type="submit" name="send" class="formbutton" value="Send" />
+			</form>
+		</div>
+
+		<script>
+		$('#reqbutton').click(function() {
+		  $('#reqform').toggle('slow', function() {
+		    // Animation complete.
+		  });
+		});
+		</script>
+
+
 		<p align="right">Nodester hosting sponsored by <a href="http://tropo.com">Tropo</a></p>
       </div>
 
@@ -90,17 +110,17 @@
 		<p>
 			<blockquote>
 				npm install nodester-cli -g <br/>
-				nodester user setup username password <br/>
-				nodester user setkey file_path 
+				nodester user setup &lt;username&gt; &lt;password&gt; <br/>
+				nodester user setkey 
 			</blockquote>		
 		</p>
       </div>
         <div class="span-one-third">
 		<p>
 			<blockquote>
-			nodester app create app-name server.js<br/>
-			nodester app init app-name <br/>
-			Visit http://myapp.nodester.com!
+			nodester app create &lt;appname&gt;<br/>
+			nodester app init &lt;appname&gt; <br/>
+			Visit http://&lt;appname&gt;.nodester.com!
 			</blockquote>		
 		</p>
       </div>
@@ -112,9 +132,8 @@
           <p>Simply skip the init command and add a nodester git remote! Init basically creates a hello world app for you locally, adds git and the nodester remote, pushes your app to nodester, and launches it.</p>
 		<blockquote>
 			<p>
-				nodester app create myapp<br/>
-
-				nodester app info myapp<br/>
+				nodester app create &lt;appname&gt;<br/>
+				nodester app info &lt;appname&gt;<br/>
 
 				git remote add nodester the_url_returned_by_our_api and git push nodester master
 			</p><br/>
@@ -124,9 +143,8 @@
 		</p> 
 		<blockquote>
 			<p>
-			nodester npm install myapp express socket.io etc<br/>
-
-			nodester app start myapp
+			nodester npm install &lt;appname&gt; express socket.io etc<br/>
+			nodester app start &lt;appname&gt;
 			</p><br/>
 		</blockquote>  
 		
@@ -136,7 +154,7 @@
 <p>		
 		curl -X POST -u "testuser:123" -d "appname=myapp&start=hello.js" http://api.nodester.com/app<br/>
 
-		git remote add nodester the_url_returned_by_our_api and git push nodester master<br/>
+		git remote add nodester &lt;the_url_returned_by_our_api&gt; and git push nodester master<br/>
 
 		NPM modules? curl -X POST -u "testuser:123" -d "appname=myapp&action=install&package=express" http://api.nodester.com/npm<br/>
 
@@ -144,7 +162,7 @@
 </p>
 		</blockquote>
 		      
-		<blockquote>Visit your app at http://myapp.nodester.com</blockquote>
+		<blockquote>Visit your app at http://&lt;appname&gt;.nodester.com</blockquote>
 		<p>Don't worry :) You only need to start the application once. Subsequent git pushes will automatically pick up your changes and restart.</p>
 	
 	</div>
