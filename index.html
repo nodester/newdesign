@@ -33,11 +33,11 @@
         <div class="container">
           <a class="brand" href="/">nodester</a>
           <ul class="nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/api.html">Docs</a></li>
+            <li><a href="/about.html">About</a></li>
           </ul>
-			<p class="pull-right"><a class="btn primary large">Signin &raquo;</a></p>
+			<p class="pull-right"><a class="btn primary large" href="developer.html">Signin &raquo;</a></p>
         </div>
       </div>
     </div>
@@ -53,37 +53,99 @@
         <p>Deploy your Node.JS applications to Nodester.com for FREE or deploy your apps to your own private cloud instance of Nodester running in your own datacenter or on Amazon EC2, Rackspace, or GoGrid!
 			</p><p>
 		Nodester is an open source Node.JS Platform-as-a-Service written in Node.JS with a RESTful API designed to run in any cloud without a VPS! It was the first of it's kind and 100% open sourced under the GNU Affero license on <a href="http://github.com/nodester">GitHub</a>.</p><br/>
-        <p><a class="btn primary large">Learn more &raquo;</a></p>
+        <p><a class="btn primary large" href="developer.html">Learn more &raquo;</a></p>
+		<p align="right">Nodester hosting sponsored by <a href="http://tropo.com">Tropo</a></p>
       </div>
 
       <!-- Example row of columns -->
       <div class="row">
-        <div class="span5">
+        <div class="span-one-third">
           <h2><img src="rocket-md-right.png" width="30">Preparing Launch</h2>
-          <p>Request your free Nodester Node.JS hosting coupon.
-			</p><p>
-		curl -X POST -d "email=your_address@gmail.com" http://nodester.com/coupon</p><br/>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
+          <p>Request your free Nodester Node.JS hosting coupon.</p>
+          <!-- <p><a class="btn" href="#">View details &raquo;</a></p> -->
         </div>
-        <div class="span5">
+        <div class="span-one-third">
           <h2><img src="rocket-md-right.png" width="30">All Systems Go</h2>
-           <p>You have received your coupon and you're ready to install our Command Line Interface (CLI).
-			</p><p>
-		npm install nodester-cli -g <br/>
-		nodester user setup username password <br/>
-		nodester user setkey file_path </p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
+           <p>You have received your coupon and you're ready to install our Command Line Interface (CLI).</p>
+          <!-- <p><a class="btn" href="#">View details &raquo;</a></p> -->
        </div>
-        <div class="span5">
+        <div class="span-one-third">
           <h2><img src="rocket-md-right.png" width="30">Launch App</h2>
-          <p>You are ready to deploy your test Hello World app with 2 commands.
-			</p><p>
-		nodester app create app-name server.js<br/>
-		nodester app init app-name <br/>
-		Visit http://myapp.nodester.com!</p><br/>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
+          <p>You are ready to deploy your test Hello World app with 2 commands.</p>
+          <!-- <p><a class="btn" href="#">View details &raquo;</a></p> -->
         </div>
       </div>
+
+      <div class="row">
+        <div class="span-one-third">
+		<p>
+			<blockquote>
+			curl -X POST -d "email=your_address@gmail.com" http://nodester.com/coupon
+			</blockquote>		
+		</p>
+      </div>
+        <div class="span-one-third">
+		<p>
+			<blockquote>
+				npm install nodester-cli -g <br/>
+				nodester user setup username password <br/>
+				nodester user setkey file_path 
+			</blockquote>		
+		</p>
+      </div>
+        <div class="span-one-third">
+		<p>
+			<blockquote>
+			nodester app create app-name server.js<br/>
+			nodester app init app-name <br/>
+			Visit http://myapp.nodester.com!
+			</blockquote>		
+		</p>
+      </div>
+    </div>
+	
+
+	<div class="span16"><br/>
+          <h1>For Experienced Nodesters with Existing Node.JS Apps</h1>
+          <p>Simply skip the init command and add a nodester git remote! Init basically creates a hello world app for you locally, adds git and the nodester remote, pushes your app to nodester, and launches it.</p>
+		<blockquote>
+			<p>
+				nodester app create myapp<br/>
+
+				nodester app info myapp<br/>
+
+				git remote add nodester the_url_returned_by_our_api and git push nodester master
+			</p><br/>
+		</blockquote>  
+		<p>
+			Do you have NPM modules?
+		</p> 
+		<blockquote>
+			<p>
+			nodester npm install myapp express socket.io etc<br/>
+
+			nodester app start myapp
+			</p><br/>
+		</blockquote>  
+		
+		<p>- OR use our REST API-</p>
+
+		<blockquote>
+<p>		
+		curl -X POST -u "testuser:123" -d "appname=myapp&start=hello.js" http://api.nodester.com/app<br/>
+
+		git remote add nodester the_url_returned_by_our_api and git push nodester master<br/>
+
+		NPM modules? curl -X POST -u "testuser:123" -d "appname=myapp&action=install&package=express" http://api.nodester.com/npm<br/>
+
+		curl -X PUT -u "testuser:123" -d "appname=myapp&running=true" http://api.nodester.com/app<br/>
+</p>
+		</blockquote>
+		      
+		<blockquote>Visit your app at http://myapp.nodester.com</blockquote>
+		<p>Don't worry :) You only need to start the application once. Subsequent git pushes will automatically pick up your changes and restart.</p>
+	
+	</div>
 
       <footer>
         <p>&copy; 2012 Nodester, inc. </p>
