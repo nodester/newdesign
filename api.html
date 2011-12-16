@@ -123,7 +123,7 @@
 						<tr><td><b>apps</b></td><td>&nbsp;</td><td>&nbsp;</td></tr>
 						<tr><td>&nbsp;</td><td><a class="btn disabled primary">GET</a></td><td><b>/apps</b> - Returns a list of all apps created by a user account (requires basic auth)<br/>
 							<code>curl -X GET -u "testuser:123" http://nodester.com/apps</code></td></tr>
-						<tr><td>&nbsp;</td><td><b>app</b></td><td>&nbsp;</td></tr>
+						<tr><td><b>app</b></td><td>&nbsp;</td><td>&nbsp;</td></tr>
 						<tr><td>&nbsp;</td><td><a class="btn disabled success">POST</a></td><td><b>/app</b> - Creates nodejs app for hosting (requires basic auth and returns the port address required for use along with a git repo to push to)<br/>
 								<code>curl -X POST -u "testuser:123" -d "appname=a&start=hello.js" http://api.nodester.com/app</code></td></tr>
 						<tr><td>&nbsp;</td><td><a class="btn disabled">PUT</a></td><td><b>/app</b> - Updates starting app name (requires basic auth, appname, and starting page and returns the port address required for use along with a git repo to push to and running status of the app)<br/>
@@ -147,7 +147,7 @@
 						<tr><td><b>status</b></td><td>&nbsp;</td><td>&nbsp;</td></tr>
 						<tr><td>&nbsp;</td><td><a class="btn disabled primary">GET</a></td><td><b>/status</b> - Returns platform status and number of apps hosted and running<br/>
 								<code>curl http://nodester.com/status</code></td></tr>
-						<tr><td>&nbsp;</td><td><b>npm</b></td><td>&nbsp;</td></tr>
+						<tr><td><b>npm</b></td><td>&nbsp;</td><td>&nbsp;</td></tr>
 						<tr><td>&nbsp;</td><td><a class="btn disabled success">POST</a></td><td><b>/npm</b> - Allows you to manage the NPM packages for an application.<br/>
 								<code>curl -X POST  -u "testuser:123" -d "appname=a&action=install&package=express" http://api.nodester.com/npm</code><br/>
 								<code>curl -X POST  -u "testuser:123" -d "appname=a&action=update&package=express" http://api.nodester.com/npm</code><br/>
@@ -164,6 +164,9 @@
 						        <code>curl -X POST -d "user=your_username" http://nodester.com/reset_password</code></td></tr>
 						<tr><td>&nbsp;</td><td><a class="btn disabled">PUT</a></td><td><b>/reset_password/&lt;token&gt;</b> - Updates your password using the provided token<br/>
 								<code>curl -X PUT -d "password=your_new_password" http://nodester.com/reset_password/&lt;token&gt;</code></td></tr>
+						<tr><td><b>gitreset</b></td><td>&nbsp;</td><td>&nbsp;</td></tr>
+						<tr><td>&nbsp;</td><td><a class="btn disabled danger">DELETE</a></td><td><b>/gitreset</b> - Resets your Nodester git repository and npm list (pass in appname)<br/>
+							<code>curl -X DELETE -u "testuser:123" -d "appname=a" http://api.nodester.com/gitreset</code></td></tr>
 
 					</table>
 
