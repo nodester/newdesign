@@ -47,16 +47,18 @@
     </div>
 
     <div class="container">
-
 	<div class="span16"><br/>
         <h1>Welcome Nodesters!</h1>
 		<p>Nodester is a free and open source Node.JS hosting PaaS.  Our Web Admin Panel is coming soon.  Until then, here are a few tricks to get you started.</p>
+		<p>
+			<iframe width="853" height="480" src="http://www.youtube.com/embed/1OdmF26_vmc" frameborder="0" allowfullscreen></iframe>
+		</p>
 		<br/>
 		<h2><img src="rocket-md-right.png" width="30"> Requesting a Coupon Code to Register</h2>
 		<p>curl -X POST -d "email=your_address@gmail.com" http://nodester.com/coupon<br/><br/>
 		<div id="reqbutton" class="btn">OR CHEAT</div>
 		<div id="reqform" style="display: none"><br/>
-			<form action="/coupon" method="post">
+			<form action="/coupon" method="post" class="form-stacked">
 				<p><label for="email">Email Adderss:</label>
 				<input type="text" name="email" id="email" value="" /><input type="submit" name="send" class="formbutton" value="Send" />
 			</form>
@@ -69,7 +71,7 @@
 			curl -X POST -d "coupon=mycoupon&user=testuser&password=123&email=chris@nodester.com&rsakey=ssh-rsa AAAAB3NzaC1yc..." http://nodester.com/user<br><br/>
 			<div id="regbutton" class="btn">OR CHEAT</div>
 			<div id="regform" style="display: none"><br/>
-				<form action="/user" method="post">
+				<form action="/user" method="post" class="form-stacked">
 					<p><label for="name">Coupon:</label>
 					<input type="password" name="coupon" id="coupon" value="" /><br />		
 					<label for="name">Username:</label>
@@ -92,7 +94,7 @@ cat ~/.ssh/id_rsa.pub | pbcopy</textarea><br />
 			<p>
 			npm install nodester-cli -g <br/>
 			nodester user setup &lt;username&gt; &lt;password&gt; <br/>
-			nodester user setkey 
+			<!-- nodester user setkey  -->
 			</p><br/>
 			
 		<h2><img src="rocket-md-right.png" width="30"> Launch Your Node.JS Application!</h2>
@@ -100,7 +102,7 @@ cat ~/.ssh/id_rsa.pub | pbcopy</textarea><br />
 		<p>
 			nodester app create &lt;appname&gt;<br/>
 			nodester app init &lt;appname&gt; <br/>
-			Visit http://&lt;appname&gt;.nodester.com!
+			http://&lt;appname&gt;.nodester.com
 		</p>
 	</div>
 	
