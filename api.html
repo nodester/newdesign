@@ -46,6 +46,19 @@
 
   <body>
 
+	<script>
+		
+		$(document).ready(function() {
+		   var hash = window.location.hash.substring(1);
+			if (hash == "rest") {
+				$('#restli').addClass("active");
+				$('#clili').removeClass("active");
+				$('#cli').removeClass("active");
+				$('#rest').addClass("active");
+			}
+		});
+	</script>
+
     <div class="topbar">
       <div class="fill">
         <div class="container">
@@ -74,8 +87,8 @@
 			</p>	
 			
 			<ul class="tabs" data-tabs="tabs">
-			  <li class="active"><a href="#cli">Command Line Interface (CLI)</a></li>
-			  <li><a href="#rest">REST API</a></li>
+			  <li class="active" id="clili"><a href="#cli">Command Line Interface (CLI)</a></li>
+			  <li id="restli"><a href="#rest">REST API</a></li>
 			</ul>
 
 			<div id="my-tab-content" class="tab-content">
