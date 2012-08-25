@@ -2,13 +2,14 @@
 <html lang="en">
    <head>
       <meta charset="utf-8" />
-      <title>Nodester -> Open Source Node.JS PaaS</title>
+      <title>Nodester  &middot; Open Source Node.JS PaaS</title>
       <meta name="description" content="Open Source Node.JS Platform as a Service" />
       <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
       <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
       <![endif]-->
       <!-- Le styles -->
+      <link href="css/font.css" rel="stylesheet" type="text/css" />
       <link href="bootstrap.css" rel="stylesheet" type="text/css" />
       <link href="http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.css" rel="stylesheet" type="text/css" />
       <style type="text/css">
@@ -55,14 +56,14 @@
       <div class="topbar">
          <div class="fill">
             <div class="container">
-               <a class="brand" href="index.html"><img src="images/rocket-md-right.png" width="20" /> nodester</a>
-               <ul class="nav">
-                  <li><a href="index.html">Home</a></li>
-                  <li><a href="api.html">API</a></li>
-                  <li><a href="http://nodester.tumblr.com">Blog</a></li>
+               <a class="brand" href="/"><img src="images/rocket-md-right.png" width="40" /> <span>nodester</span></a>
+               <ul id="actions" class="nav off">
+                  <li class=""><a href="/">Home</a></li>
+                  <li><a href="/api">API</a></li>
+                  <li class="active"><a href="/help">Help</a></li>
                   <li><a href="http://irc.nodester.com">IRC</a></li>
-                  <li class="active"><a href="help.html">Help</a></li>
-                  <li><a href="http://site.nodester.com">Status</a></li>
+                  <li><a href="http://blog.nodester.com">Blog</a></li>
+
                </ul>
                <p class="pull-right">
                <form action="http://admin.nodester.com/login" method="post" class="pull-right">
@@ -92,14 +93,12 @@
 			<ul class="tabs" data-tabs="tabs">
 			  <li class="active" id="helpli"><a href="#help">General Help</a></li>
 			  <li id="faqli"><a href="#faq">FAQs</a></li>
+			  <li id="videoli"><a href="#video">How-To Video</a></li>
 			</ul>
 
 			<div id="my-tab-content" class="tab-content">
 	            <div class="active tab-pane" id="help">
 
-		            <p>
-		               <iframe width="853" height="480" src="http://www.youtube.com/embed/jwsP1Ejv-_w?hd=1" frameborder="0" allowfullscreen></iframe>
-		            </p>
 		            <br />
 		            <h2><img src="images/rocket-md-right.png" width="30" /> Requesting a Coupon Code to Register</h2>
 		            <p>
@@ -121,72 +120,119 @@
 	         <h2><img src="images/rocket-md-right.png" width="30" /> Registering with a Coupon Code</h2>
 	         <p>
 	         <pre class="prettyprint">curl -X POST -d "coupon=mycoupon&user=testuser&password=123&email=chris@nodester.com&rsakey=ssh-rsa AAAA..." http://nodester.com/user</pre>
+	         <p><span class="label important">Important</span> 
+				RSA key instructions for <a href="http://help.github.com/mac-set-up-git/" target="_new">Mac OSX</a> | <a href="http://help.github.com/linux-set-up-git/" target="_new">Linux</a> | <a href="http://help.github.com/win-set-up-git/" target="_new">Windows</a> 
 	         <div id="regbutton" class="btn">OR CHEAT</div>
 	         <div id="regform" style="display: none">
 	            <br />
 	            <form action="/user" method="post">
 	               <input class="input-small" type="text" id="coupon" name="coupon" placeholder="Coupon" /><br /><br />
 	               <input class="input-large" type="text" id="user" name="user" placeholder="Username (alphanumeric)" /><br /><br />
-	               <input class="input-large" type="password" id="password" name="password" placeholder="Password (alphanumeric)" /><br /><br />
+	               <input class="input-large" type="password" id="password" name="password" placeholder="Password" /><br /><br />
 	               <span id="passwordError" style="display:none"><span style="color:red">Password is limited to alphanumerics - no symbols allowed.</span><br /><br /></span>
 	               <input class="input-large" type="text" id="email" name="email" placeholder="Email" /><br /><br />
-	               <textarea class="xxlarge" id="rsakey" name="rsakey" rows="3" placeholder="Copy &amp; Paste RSA key from command line: cat ~/.ssh/id_rsa.pub | pbcopy"></textarea><br /><br />
+	               <textarea class="xxlarge" id="rsakey" name="rsakey" rows="3" placeholder="Copy &amp; Paste RSA key from command line: cat ~/.ssh/id_rsa.pub | pbcopy"></textarea><br />
+					Mac and Linux users can copy and paste their RSA keys into nodester's registration form by running "cat ~/.ssh/id_rsa.pub | pbcopy" from the command line.<br /><br />
 	               <button class="btn" type="submit">Send</button>
 	            </form>
 	         </div>
 	         <br /><br />
 	         </p>
 	         <br />
-	         <h2><img src="images/rocket-md-right.png" width="30" /> Setting up</h2>
-	         <p>Install the CLI and give it your credentials before blasting off</p>
+	         <h2><img src="images/rocket-md-right.png" width="30" /> Getting Started</h2>
+			 <p>Install Git - <a href="http://git-scm.com/download">http://git-scm.com/download</a></p>
+	         <p>Install the Nodester CLI and give it your credentials before blasting off</p>
 	         <pre class="prettyprint">npm install nodester-cli -g <br />nodester user setup &lt;username&gt; &lt;password&gt; <br />nodester user setkey</pre>
 	         <br />
-	         <h2><img src="images/rocket-md-right.png" width="30" /> Create Your Application</h2>
+	         <h2><img src="images/rocket-md-right.png" width="30" /> Create & Launch Your Node.JS Application!</h2>
 	         <p>You are ready to deploy your test Hello World app with 2 commands.</p>
 	         <pre class="prettyprint">nodester app create &lt;appname&gt;<br />nodester app init &lt;appname&gt; <br />http://&lt;appname&gt;.nodester.com</pre>
 	         <br />
-	         <h2><img src="images/rocket-md-right.png" width="30" /> Launch Your Node.JS Application!</h2>
-	         <p>You are ready to deploy your test Hello World app with 2 commands.</p>
-	         <pre class="prettyprint">nodester app create &lt;appname&gt;<br />nodester app init &lt;appname&gt; <br />http://&lt;appname&gt;.nodester.com</pre>
+	         <h2><img src="images/rocket-md-right.png" width="30" /> Updating Your Node.JS Application!</h2>
+	         <p>Now that your Node.JS application is running, you can make changes to server.js and push your updates to Nodester. Note: Git push also restarts your application.</p>
+	         <pre class="prettyprint">cd ./&lt;appname&gt;<br />git push origin master<br />http://&lt;appname&gt;.nodester.com</pre>
 	         <br />
 	         <h2><img src="images/rocket-md-right.png" width="30" /> Do you have NPM dependencies?</h2>
 	         <p>You can install any npm module you want!</p>
 	         <pre class="prettyprint">nodester npm install &lt;appname&gt; &lt;package names&gt;<br />nodester app restart &lt;appname&gt;</pre>
 	         <br />
-	         <h1>For Experienced Nodesters with Existing Node.JS Apps</h1>
+	         <h2>For Experienced Nodesters with Existing Node.JS Apps</h2>
 	         <p>Don't need a "hello world"? Simply skip the init command and add a nodester git remote to your existing project folder. Pushing to nodester will automatically restart your application!</p>
 	         <pre class="prettyprint">nodester app create &lt;appname&gt;<br/>git remote add nodester &lt;the_url_returned_by_our_api&gt;<br/>git push nodester master<br/>http://&lt;appname&gt;.nodester.com</pre>
-	         <p><span class="label important">Important</span> Make sure you use the port given to you by nodester!</p>
+	         <p><span class="label important">Important</span> Make sure you use the port given to you by nodester! Replacing the port in your listen method with <code>listen(process.env['app_port'] || 3000)</code></p>
 	         <br />
 
-         </div>
+         </div> 
          <div class="tab-pane" id="faq">
 				<table class="bordered-table zebra-striped">
 					<tr>
+						<td>Node.JS Version</td>
+						<td>Nodester is currently running Node.JS versions 0.4.9, 0.4.12, 0.6.12, and 0.6.17. We are working to add support for more versions of Node.JS. You can specify which 
+							version your app runs on in its secured sandbox via your package.json file. More info at: <a href="http://blog.nodester.com/post/18702499832/nodester-now-running-node-js-0-6-12">http://blog.nodester.com/post/18702499832/nodester-now-running-node-js-0-6-12</a>. </td>
+					</tr>
+					<tr>
+						<td>RSA Keys</td>
+						<td>RSA/SSH keys are used with <a href="http://git-scm.com/">git</a> to push or deploy your applications on Nodester. Mac and Linux users can copy and paste their RSA keys into nodester's registration form 
+							by running "cat ~/.ssh/id_rsa.pub | pbcopy" from the command line.  RSA key instructions for <a href="http://help.github.com/mac-set-up-git/" target="_new">Mac OSX</a> | <a href="http://help.github.com/linux-set-up-git/" target="_new">Linux</a> | <a href="http://help.github.com/win-set-up-git/" target="_new">Windows</a>  </td>
+					</tr>
+					<tr>
 						<td>Ports</td>
 						<td>Your application's port must match the port that we assign your application. This port is provided at the time of app creation but your can retrieve 
-						your application's port, starting javascript file, and nodester git repository address at any time by running "nodester app info &lt;appname&gt;" from the CLI.</td>
+						your application's port, starting javascript file, and nodester git repository address at any time by running <code>nodester app info &lt;appname&gt;</code> from the CLI.
+						You can also simply use process.env['app_port'] as an environmental variable and Nodester will automatically use the port assigned or you could 
+						do something like this to make it easy to switch between localhost and production: <code>appPort = process.env['app_port'] || 3000</code></td>
 					</tr>
 					<tr>
 						<td>Web Sockets</td>
 						<td>Your application's server-side port must match the port that we assign your application (see ports section above). 
-							Your client side port should be set to port 80.</td>
+							Your client side port should be set to port 80. For more information see <a href="http://blog.nodester.com/post/3634535277/running-websockets-on-nodester">http://blog.nodester.com/post/3634535277/running-websockets-on-nodester</a></td>
 					</tr>
 					<tr>
 						<td>Logs</td>
-						<td>Your application's logs are very helpful at helping you troubleshoot issues.  You can be access these logs from the CLI by running "nodester app info &lt;appname&gt;".</td>
+						<td>Your application's logs are very helpful at helping you troubleshoot issues.  You can be access these logs from the CLI by running <code>nodester app logs &lt;appname&gt;</code>.</td>
 					</tr>
 					<tr>
 						<td>Local File Writes</td>
-						<td>Your application can write to your local sandbox.  Remember to include a directory in your project to write to and start the name/path of the file as "./directory/filename".</td>
+						<td>Your application can write to your local sandbox.  Remember to include a directory in your project to write to and start the name/path of the file as "./directory/filename" or consider doing something like <code>fs.readFile(__dirname + '/conf/mynode.conf'</code>.</td>
 					</tr>
 					<tr>
 						<td>NPM Modules</td>
-						<td>Most Node.JS applications use NPM modules especially ExpressJS.  Remember to run "nodester npm install &lt;appname&gt; &lt;modulename modulename modulename&gt;" from the CLI and restart your application
-							after successfully updating NPM.  Nodester also supports package.json allowing you to install all of your modules without listing them individually like so: "nodester npm install &lt;appname&gt;"</td>
+						<td>Most Node.JS applications use NPM modules especially ExpressJS.  Remember to run <code>nodester npm install &lt;appname&gt; &lt; modulename1 modulename2 modulename3</code> from the CLI and restart your application
+							after successfully updating NPM.  Nodester also supports package.json allowing you to install all of your modules without listing them individually like so: <code>nodester npm install &lt;appname&gt;</code></td>
+					</tr>
+					<tr>
+						<td>Environment Variables</td>
+						<td>We support for following environment variables globally: port, host, PORT, HOST, app_host, app_port.  This means that you can use our environment variable instead of hardcoding the port in your application like so: <code>app.listen(process.env['app_port']);</code></td>
+					</tr>
+					<tr>
+						<td>Windows Users</td>
+						<td>The most common problems experienced by Windows users typically come down to the RSA key not being setup properly or the files not being properly checked into git before pushing to Nodester.  
+							Both issues result in your code not actually being deployed to Nodester (hence the unhappy rocket).
+							<br /><br />
+							In regards to the RSA key, please follow the instructions above for creating an RSA key on your system. 
+							Once you have a shiny new RSA key, you can run "nodester user setkey {full system path to the key file including the id_rsa.pub key name or whatever you called it.}". This will send your new RSA key to Nodester which will give your system
+							git access to nodester to push your app.
+							<br /><br />
+							Since git may or may not contain all of your updates at this point, we would that you edit one of your files in your app directory by adding a space or tab (whitespace) somewhere and saving it again.  Run 'git add .' from the command line
+							followed by a 'git commit -m "updated text"' to commit your change followed by a 'git push origin master' to re-push your files to Nodester.  If everything is successful, git will push your app to Nodester and your application will automatically be
+							restarted running the version of node.js listed in your package.js file.  (See note above for changing versions of node.js.) 						
+						</td>
+					</tr>
+					<tr>
+						<td>Password request on git pushes</td>
+						<td>If you added a passphrase to your RSA key when generating one, git will prompt you for a password every time you push your app code to Nodester.
+							This password is your RSA passphrase NOT your Nodester password. </td>
 					</tr>
 				</table>
            </div>
+
+	         <div class="tab-pane" id="video">
+					<br/>
+		           <p>
+		              <iframe width="853" height="480" src="http://www.youtube.com/embed/jwsP1Ejv-_w?hd=1" frameborder="0" allowfullscreen></iframe>
+		           </p>
+			</div>
+
 	</div>			
 
 
@@ -204,18 +250,31 @@
            });
          });
       </script>
-      </div>
-      <!-- /container -->
-      <footer class="footer">
+       <footer class="footer">
          <div class="container">
             <p>
-               &#169; <script type="text/javascript">
+               <a href="/help">help</a> &middot;
+               <a href="/about">about us</a> &middot;
+               &#169; 2011 - <script type="text/javascript">
                   var theDate=new Date()
                       document.write(theDate.getFullYear())
-               </script> Nodester, inc. | <a href="about.html">about us</a> | <a href="http://twitter.com/nodester">twitter</a> | <a href="http://github.com/nodester">github</a>
+               </script> Nodester, inc.  &middot; 
+               <a href="//twitter.com/nodester">twitter</a> &middot;
+               <a href="//github.com/nodester">github</a>
             </p>
          </div>
       </footer>
+      </div>
+      <!-- /container -->
+
+      <script type="text/javascript">
+      $(document).ready(function(){
+          var topbar = $('.fill')
+          var ul = $('#actions')
+          ul.removeClass('off')
+          ul.fadeIn(2500)
+       });
+      </script>
    </body>
 </html>
 

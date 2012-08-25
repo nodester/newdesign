@@ -1,6 +1,15 @@
 var express = require("express"),
     app = express.createServer();
-app.use(express.static(__dirname));
+// app.use(express.static(__dirname));
+
+app.configure(function () {
+  app.use(express.bodyParser());
+  app.use(express['static'](__dirname));
+  app.use(express.errorHandler({
+    showStack: true,
+    dumpExceptions: true
+  }));
+});
 
 //setup the errors
 app.error(function(err, req, res, next){
@@ -11,7 +20,25 @@ app.error(function(err, req, res, next){
     }
 });
 
+
+app.get('/api', function(req, res){
+    res.sendfile(__dirname + '/api.html');
+});
+
+
+app.get('/help', function(req, res){
+    res.sendfile('help.html');
+});
+
+app.get('/about', function(req, res){
+    res.sendfile(__dirname + '/about.html');
+});
+
+
+
 app.listen(12952);
+
+
 
 //The 404 Route (ALWAYS Keep this as the last route)
 app.get('/*', function(req, res){
